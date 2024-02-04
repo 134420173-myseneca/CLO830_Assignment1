@@ -33,9 +33,9 @@ jobs:
         IMAGE_TAG: v1.1
       run: |
 
-        # Docker build image database
+        # Docker build image for database under ecr repository mysql
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile_mysql .
-        # Docker push image
+        # Docker push image to ecr repository mysql
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
     - name: Build, test, tag, and push image for Amazon ECR app
       env:
@@ -44,7 +44,7 @@ jobs:
         IMAGE_TAG: v1.1
       run: |
 
-        # Docker build image for app
+        # Docker build image for python web app
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile .
-        # Docker push to push image to ecr
+        # Docker push to push image to ecr repository webapp
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
