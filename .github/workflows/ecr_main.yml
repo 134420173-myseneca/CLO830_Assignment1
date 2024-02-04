@@ -35,7 +35,7 @@ jobs:
 
         # Docker build image for database under ecr repository mysql
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile_mysql .
-        # Docker push image to ecr repository mysql
+        # Docker push image to ecr repository mysql with image tag
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
     - name: Build, test, tag, and push image for Amazon ECR app
       env:
