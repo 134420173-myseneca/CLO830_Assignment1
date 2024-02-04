@@ -32,8 +32,7 @@ jobs:
         ECR_REPOSITORY: mysql
         IMAGE_TAG: v1.1
       run: |
-        #cd Chapter02/kubia/
-        #ls -ltra
+
         # Docker build image database
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile_mysql .
         # Docker push image
@@ -44,9 +43,8 @@ jobs:
         ECR_REPOSITORY: webapp
         IMAGE_TAG: v1.1
       run: |
-        #cd Chapter02/kubia/
-        #ls -ltra
-        # Docker build app
+
+        # Docker build image for app
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile .
-        # Docker push
+        # Docker push to push image to ecr
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
